@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  wa-bot:
+    build: .
+    container_name: wa-bot
+    env_file: .env
+    environment:
+      - CHROME_PATH=/usr/bin/chromium
+      - WWEBJS_CLIENT_ID=${WWEBJS_CLIENT_ID:-bot1}
+    volumes:
+      - ./auth:/app/.wwebjs_auth
+    restart: unless-stopped
