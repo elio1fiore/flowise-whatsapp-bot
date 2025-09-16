@@ -1,9 +1,10 @@
-import { Client, LocalAuth } from 'whatsapp-web.js';
+import pkg from 'whatsapp-web.js';
+const { Client, LocalAuth } = pkg;
+
 import qrcode from 'qrcode-terminal';
 import axios from 'axios';
 import dotenv from 'dotenv';
 dotenv.config();
-
 const flowiseUrl = process.env.FLOWISE_URL;
 if (!flowiseUrl) {
   console.error('Missing FLOWISE_URL in environment');
@@ -69,7 +70,7 @@ client.on('message', async msg => {
 });
 
 const shutdown = async () => {
-  try { await client.destroy(); } catch {}
+  try { await client.destroy(); } catch { }
   process.exit(0);
 };
 process.on('SIGINT', shutdown);

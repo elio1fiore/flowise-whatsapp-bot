@@ -55,3 +55,4 @@ node_modules/
 .pnpm-store/
 playwright/.cache/
 .local-browsers/
+auth
